@@ -1,0 +1,269 @@
+/* listing container to put all the list item insdie this container */
+.listing-container {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  height: auto;
+}
+.details-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #282c34;
+}
+/* This css is for the laoding message on screen while API is fetching the data */
+.loading-message {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.listing-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: 'Alice', Helvetica, sans-serif;
+}
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+.listing-button {
+  margin-bottom: 10px;
+  width: 10%;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: gold;
+}
+.listing-input {
+  border-radius: 5px;
+  width: 30%;
+  padding: 8px;
+}
+.delete-button {
+  background: linear-gradient(-180deg, #ff7e31, #ff6060);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  height: auto;
+  padding: 8px 15px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition: box-shadow 0.2s;
+  border: 0;
+}
+
+.delete-button:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+
+.listing-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.listing-item {
+  border-radius: 10px;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background: #e7e7e8;
+  transition: 0.5s;
+}
+
+.listing-item:hover {
+  background-color: #e4f3ff;
+  border-radius: 10px;
+  animation-name: example;
+  animation-duration: 0.25s;
+  border-left: 8px solid #169f9f;
+  color: #282c34;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: 0.2s;
+}
+
+.show-more-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+}
+
+.show-more-button {
+  background: #169f9f;
+  border-radius: 999px;
+  box-shadow: #169f9f 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border: 0;
+}
+.sort-button {
+  background: #169f9f;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
+    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
+    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+* Modal CSS */ .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  margin: 0 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Animation */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.modal-content {
+  animation: slideIn 1s ease-in-out;
+  position: relative;
+  z-index: 99;
+}
+.modal-overlay::before {
+  content: "";
+  width: 100%;
+  left: 0;
+  height: 100vh;
+  background: black;
+  position: fixed;
+  top: 0;
+  opacity: 0.5;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-overlay{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+/* Responsive CSS for screen size of maximun 600px in width*/
+@media screen and (max-width: 600px) {
+  .listing-container {
+    padding: 10px;
+  }
+  .listing-input {
+    border-radius: 5px;
+    width: 40%;
+    padding: 8px;
+  }
+  .sort-button {
+    width: 40%;
+  }
+  .listing-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+}
+
+/* Responsive CSS for screen size of maximun 320px in width*/
+@media screen and (max-width: 320px) {
+  .listing-input {
+    border-radius: 5px;
+    width: auto;
+    padding: 8px;
+    margin-top: 20px;
+  }
+  .sort-button {
+    width: 40%;
+  }
+  .listing-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .listing-button {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: gold;
+  }
+  .sort-button {
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px;
+  }
+}

@@ -1,0 +1,57 @@
+/* DetailsPage.css */
+
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 20px;
+  padding: 20px; */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.details-header {
+  width: 100%;
+  padding: 10px;
+  background-color: #7fc9df;
+  color: #282c34;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.details-container {
+  width: 70%;
+  padding: 20px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.details-table th,
+.details-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.details-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+  width: 30%;
+}
+
+.details-table td a {
+  color: #0044cc;
+  text-decoration: none;
+}
+
+.details-table td a:hover {
+  text-decoration: underline;
+}
+ 

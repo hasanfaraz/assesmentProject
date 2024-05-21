@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { fetchDataFromAPI, getCachedData } from './models/FetchData';
+import ListingPage from './view/ListingPage';
+import DetailsPage from './view/DetailsPage';
+import '../src/css/App.css';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const cachedData = getCachedData();
+    if (cachedData.length > 0) {
+      setData(cachedData);
+    } else {
+      async function fetchData() {
+        try {
+          const newData = await fetchDataFromAPI();
+          setData(newData);
+          // Save fetched data to local storage
+          localStorage.setItem('cachedData', JSON.stringify(newData));
+        } catch (error) {
+          console.log('Failed to fetch data from API');
+        }
+      }
+      fetchData();
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ListingPage data={data} />} />
+        <Route path="/details/:id" element={<DetailsPage data={data} />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
