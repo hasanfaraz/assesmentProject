@@ -32,6 +32,7 @@ const ListingPage = () => {
   const [isLoading, setLoading] = useState(true); // State to show loading message
 
   useEffect(() => {
+    // check if data is already exist in local storage then only call API
     const cachedData = getCachedData();
     if (cachedData.length > 0) {
         setData(cachedData);
@@ -59,10 +60,12 @@ const ListingPage = () => {
     }       
   }, []);
 
+//   On click redirect to the details page with ID
   const handleItemClick = (id) => {
     history(`/details/${id}`);
   };
 
+//   Here i am sorting the list alphbatically asc and dsc order
   const handleSort = () => {
     const sortedData = [...data].sort((a, b) => {
       if (sortOrder === "asc") {
@@ -96,7 +99,7 @@ const ListingPage = () => {
     localStorage.setItem("cachedData", JSON.stringify(updatedData));
     setShowModal(false);
   };
-
+// Here we will show next 10 records from the list
   const handleShowMore = () => {
     setCurrentPage((prevPage) => prevPage + 1);
     setFilteredData(data.slice(0, (currentPage + 1) * recordsPerPage));

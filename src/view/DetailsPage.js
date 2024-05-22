@@ -4,7 +4,6 @@ import '../css/DetailsPage.css'; // Import CSS file
 
 const DetailsPage = ({ data }) => {
   const { id } = useParams();
-  // Data array of universities
 
   // Find the university by id
   const item = data.find(item => item.id === parseInt(id));
@@ -16,7 +15,11 @@ const DetailsPage = ({ data }) => {
 
   // If item is not found, you can render a message or handle it accordingly
   if (!item) {
-    return <div className="details-container">Item not found</div>;
+    return <div className="details-container">
+        <button className="show-more-button" onClick={handleBack}>
+                Item not found
+              </button>
+    </div>;
   }
 
   return (
